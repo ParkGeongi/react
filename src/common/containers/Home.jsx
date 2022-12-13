@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom"
 import { SignUp,LoginForm } from "auth"
 
-import {Counter, Footer, Navigation} from "common"
+import {Counter, Footer, Navigation2} from "common"
 import { Schedule } from "todos"
 import dog from '../../images/fashion.png'
+import { Iris} from "ml"
 
 
 const Home = () => {
@@ -13,8 +14,8 @@ const Home = () => {
         <thead>
             <tr columns="3" >
                 <td style={{ width: "100%", border: "1px solid black"}}>
-                
-                <h3><Navigation/></h3>
+                <Navigation2/>
+           
                 
                     </td>
             </tr>
@@ -27,6 +28,8 @@ const Home = () => {
             <Route path="/todos" element={<Schedule/>}></Route>
             <Route path="/login" element={<LoginForm/>}></Route>
             <Route path="/signup" element={<SignUp/>}></Route>
+            <Route path="/iris" element={<Iris/>}></Route>
+            
         
         </Routes>
         </td>

@@ -1,0 +1,1 @@
+export {default as Iris} from 'ml/components/Iris'
