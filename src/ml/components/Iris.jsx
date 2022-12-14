@@ -15,12 +15,17 @@ const Iris = () => {
     const onClick = e => {
         e.preventDefault()
         const irisRequest = {SepalLengthCm, SepalWidthCm,PetalLengthCm,PetalWidthCm}
+        alert(`찾는 품종 : ${JSON.stringify(irisRequest)}`)
         IrisService(irisRequest)
-            .then((res)=>{
-      console.log(`Response is ${res.config.data}`)
-      localStorage.setItem('token', JSON.stringify(res.config.data)) // 임시 저장소 response 저장해놈
-
-    }) //success reponse는 내가 보낸 requset한거에 추가로 뭔가 있다 추가한게 장고가 보낸거라고 알고 있다
+              .then((res)=>{
+                console.log(`Response is ${res.data.result}`)
+                localStorage.setItem('token', JSON.stringify(res.data.result))
+                alert(`찾는 품종 : ${JSON.stringify(res.data.result)}`)
+      })
+            .catch((err)=>{
+              console.log(err)
+              alert('꽃잎,받침 길이/너비를 다시 입력해주세요')
+      }) //success reponse는 내가 보낸 requset한거에 추가로 뭔가 있다 추가한게 장고가 보낸거라고 알고 있다
     .catch((err)=>{
       console.log(err)
       alert('실패')
