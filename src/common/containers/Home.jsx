@@ -4,7 +4,7 @@ import { SignUp,LoginForm } from "auth"
 import {Counter, Footer, Navigation2} from "common"
 import { Schedule } from "todos"
 import dog from '../../images/fashion.png'
-import { Iris} from "ml"
+import { Fashion, Iris, Stroke} from "ml"
 
 
 const Home = () => {
@@ -29,6 +29,8 @@ const Home = () => {
             <Route path="/login" element={<LoginForm/>}></Route>
             <Route path="/signup" element={<SignUp/>}></Route>
             <Route path="/iris" element={<Iris/>}></Route>
+            <Route path="/stroke" element={<Stroke/>}></Route>
+            <Route path="/fashion" element={<Fashion/>}></Route>
             
         
         </Routes>
