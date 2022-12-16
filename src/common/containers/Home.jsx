@@ -4,7 +4,7 @@ import { SignUp,LoginForm } from "auth"
 import {Counter, Footer, Navigation2} from "common"
 import { Schedule } from "todos"
 import dog from '../../images/fashion.png'
-import { Fashion, Iris, Stroke} from "ml"
+import {  Fashion, Iris, Stroke} from "ml"
 
 
 const Home = () => {
