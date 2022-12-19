@@ -1,10 +1,11 @@
-import { StrokeService } from 'ml/api';
+
+import mlService from 'ml/api';
 import { useState } from 'react'
 
 const Stroke =()=>{
 
     const [inputs, setInputs] = useState({})
-    const {stroke} = inputs;
+    const {id} = inputs;
 
        const onChange = e =>{
         e.preventDefault()
@@ -12,26 +13,22 @@ const Stroke =()=>{
         setInputs({...inputs, [name]: value})
       }
       
-      const onClick = e =>{
-        e.preventDefault()
-        const strokeRequest = {stroke}
-        alert(`Stroke : ${JSON.stringify(strokeRequest)}`)
-        StrokeService(strokeRequest)
-        .then((res)=>{
-          console.log(`Response is ${res.config.data}`)
-          localStorage.setItem('token', JSON.stringify(res.config.data)) // 임시 저장소 response 저장해놈
-    
-        }) //success reponse는 내가 보낸 requset한거에 추가로 뭔가 있다 추가한게 장고가 보낸거라고 알고 있다
-        .catch((err)=>{
-          console.log(err)
-          alert('다시 입력해주세요')
-        }) //fail
-      }
-
+      
+    const onClick = e => {
+      e.preventDefault()
+      
+      mlService.stroke(id)
+      let arr = document.getElementsByClassName('box')
+      for(let i=0;i<arr.length;i++) arr[i].value = ""
+    }
     
     return(<>
-    
-    stroke: <input type="text" name="stroke" onChange={onChange} /><br/>
+      <form method='post'>
+      <h1>STROKE</h1>
+      <p>번호</p>
+      <input type="text" className='box' placeholder=' id ' name = 'id' onChange={onChange}/>
+      
+    </form>
     <button onClick={onClick}>전송</button>
     </>)
 }

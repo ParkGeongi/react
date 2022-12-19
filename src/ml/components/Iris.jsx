@@ -1,4 +1,5 @@
-import { IrisService } from "ml/api"
+
+import mlService from 'ml/api';
 import { useState } from 'react'
 
 
@@ -13,30 +14,44 @@ const Iris = () => {
     }
     
     const onClick = e => {
-        e.preventDefault()
-        const irisRequest = {SepalLengthCm, SepalWidthCm,PetalLengthCm,PetalWidthCm}
-        alert(`찾는 품종 : ${JSON.stringify(irisRequest)}`)
-        IrisService(irisRequest)
-              .then((res)=>{
-                console.log(`Response is ${res.data.result}`)
-                localStorage.setItem('token', JSON.stringify(res.data.result))
-                alert(`찾는 품종 : ${JSON.stringify(res.data.result)}`)
-      })
-            .catch((err)=>{
-              console.log(err)
-              alert('꽃잎,받침 길이/너비를 다시 입력해주세요')
-      }) //success reponse는 내가 보낸 requset한거에 추가로 뭔가 있다 추가한게 장고가 보낸거라고 알고 있다
-    .catch((err)=>{
-      console.log(err)
-      alert('실패')
-    }) //fail
-        }
+      e.preventDefault()
+      const request = {SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm}
+      mlService.postIris(request)
+      let arr = document.getElementsByClassName('box')
+      for(let i=0;i<arr.length;i++) arr[i].value = ""
+    }
+    const onClick2 = e => {
+      e.preventDefault()
+      mlService.getIris({SepalLengthCm, SepalWidthCm,PetalLengthCm,PetalWidthCm})
+      let arr = document.getElementsByClassName('box')
+      for(let i=0;i<arr.length;i++) arr[i].value = ""
+    }
+
     return(<>
-    SepalLengthCm: <input type="text" name="SepalLengthCm" onChange={onChange} /><br/>
-    SepalWidthCm: <input type="text" name="SepalWidthCm" onChange={onChange} /><br/>
-    PetalLengthCm: <input type="text" name="PetalLengthCm" onChange={onChange} /><br/>
-    PetalWidthCm: <input type="text" name="PetalWidthCm" onChange={onChange} /><br/>
-    <button onClick={onClick}>전송</button>
+    <form method='post'>
+      <h1>IRIS POST</h1>
+      <p>꽃잎 폭</p>
+      <input type="text" className='box' placeholder='SepalLengthCm ' name = 'SepalLengthCm' onChange={onChange}/>
+      <p>꽃잎 길이</p>
+      <input type="text" className='box' placeholder='SepalWidthCm ' name = 'SepalWidthCm' onChange={onChange}/>
+      <p>꽃받침 폭</p>
+      <input type="text" className='box' placeholder='PetalLengthCm ' name = 'PetalLengthCm' onChange={onChange}/>
+      <p>꽃받침 길이</p>
+      <input type="text" className='box' placeholder='PetalWidthCm ' name = 'PetalWidthCm' onChange={onChange}/>
+      <button onClick={onClick}>POST 전송</button>
+    </form>
+    <form method='get'>
+      <h1>IRIS GET</h1>
+      <p>꽃잎 폭</p>
+      <input type="text" className='box' placeholder='SepalLengthCm ' name = 'SepalLengthCm' onChange={onChange}/>
+      <p>꽃잎 길이</p>
+      <input type="text" className='box' placeholder='SepalWidthCm ' name = 'SepalWidthCm' onChange={onChange}/>
+      <p>꽃받침 폭</p>
+      <input type="text" className='box' placeholder='PetalLengthCm ' name = 'PetalLengthCm' onChange={onChange}/>
+      <p>꽃받침 길이</p>
+      <input type="text" className='box' placeholder='PetalWidthCm ' name = 'PetalWidthCm' onChange={onChange}/>
+      <button onClick={onClick2}>GET 전송</button>
+    </form>
     </>)
 }
 
