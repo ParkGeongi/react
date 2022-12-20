@@ -23,7 +23,7 @@ const Fashion = () => {
       let arr = document.getElementsByClassName('box')
       for(let i=0;i<arr.length;i++) arr[i].value = ""
     }
-    
+
     const onClick2 = e =>{
       e.preventDefault()
       

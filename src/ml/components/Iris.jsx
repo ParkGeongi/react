@@ -22,7 +22,7 @@ const Iris = () => {
     }
     const onClick2 = e => {
       e.preventDefault()
-      mlService.getIris({SepalLengthCm, SepalWidthCm,PetalLengthCm,PetalWidthCm})
+      mlService.getIris(SepalLengthCm, SepalWidthCm,PetalLengthCm,PetalWidthCm)
       let arr = document.getElementsByClassName('box')
       for(let i=0;i<arr.length;i++) arr[i].value = ""
     }

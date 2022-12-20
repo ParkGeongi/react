@@ -48,6 +48,7 @@ async function postIris(id){
     fetch(`${server}${ml}iris`, requestOption)
     .then(handleResponse)
     .then(data => {
+        console.log(`POST Response is ${data.result}`)
         alert(JSON.stringify(data))
     })
     .catch((error) => {
@@ -55,8 +56,8 @@ async function postIris(id){
     });
 }
 
-async function getIris(id){
-    fetch(`${server}${ml}iris?id=${id}`)
+async function getIris(SepalLengthCm,SepalWidthCm,PetalLengthCm,PetalWidthCm){
+    fetch(`${server}${ml}iris?SepalLengthCm=${SepalLengthCm}&SepalWidthCm=${SepalWidthCm}&PetalLengthCm=${PetalLengthCm}&PetalWidthCm=${PetalWidthCm}`)
     .then(handleResponse)
     .then(data => {
         console.log(`GET Response is ${data.result}`)
@@ -73,7 +74,7 @@ async function postFashion(id){
     fetch(`${server}${ml}fashion`, requestOption)
     .then(handleResponse)
     .then(data => {
-        console.log(`GET Response is ${data.result}`)
+        console.log(`POST Response is ${data.result}`)
         alert('결과: '+JSON.stringify(data))
     })
     .catch((error) => {

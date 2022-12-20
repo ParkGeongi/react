@@ -25,7 +25,7 @@ const Login = () => {
     .catch((err)=>{
       console.log(err)
       alert('이메일와 비밀번호 다시 입력해주세요')
-    }) //fail
+    }) //fail   
   }
   
 
