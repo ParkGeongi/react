@@ -31,12 +31,14 @@ async function getNaver2(){
 } 
 
 
-async function getNaver(id){
-    fetch(`${server}${webcrawler}naver?id=${id}`)
+async function getNaver(){
+    const res = await fetch(`${server}${webcrawler}naver`)
     .then(handleResponse)
-    .then(data => {
-        console.log(`GET Response is ${data.result}`)
-        alert('결과: '+JSON.stringify(data))
+    .then(data =>  JSON.stringify(data))
+    .catch((error) => {
+        alert('error ::::'+error)
     })
-} 
+     return Promise.resolve(res);          
+    }
+
 export default WebcrawlerService

@@ -13,7 +13,7 @@ const naverSlice = createSlice({
       state.push(newNaver)
     }, 
     deleteNaver(state, action) {
-      return state.filter((naver) => naver.id !== action.payload.id)
+      return state.filter((naver) => naver.naver !== action.payload.id)
     }
   }
 })

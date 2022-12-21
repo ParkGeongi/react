@@ -26,7 +26,6 @@ const Number = () => {
     
     const GetonClick = e =>{
       e.preventDefault()
-      
       mlService.getNumber(id)
       let arr = document.getElementsByClassName('box')
       for(let i = 0;i<arr.length; i++) arr[i].value = ""

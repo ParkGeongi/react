@@ -5,7 +5,7 @@ import {Counter, Footer, Navigation2} from "common"
 import { Schedule } from "todos"
 import dog from '../../images/fashion.png'
 import { Number,Fashion, Iris, Stroke} from "ml"
-import { Merge } from "webcrawler"
+import {NaverMovie } from "webcrawler"
 
 
 const Home = () => {
@@ -33,7 +33,7 @@ const Home = () => {
             <Route path="/stroke" element={<Stroke/>}></Route>
             <Route path="/fashion" element={<Fashion/>}></Route>
             <Route path="/number" element={<Number/>}></Route>
-            <Route path="/navermoives" element={<Merge/>}></Route>
+            <Route path="/navermoives" element={<NaverMovie/>}></Route>
         </Routes>
         </td>
         </tr>
