@@ -1,8 +1,7 @@
+import { nlp,server } from "context";
 
-import { blog, server } from "context";
-
-const BlogService = {
-   getBlogSignup
+const NLPService = {
+    getSamsung
 }
 
 function handleResponse(response){ 
@@ -23,8 +22,8 @@ function handleResponse(response){
 
 
 
-async function getBlogSignup(){
-    const res = await fetch(`${server}${blog}blog-signup`)
+async function getSamsung(){
+    const res = await fetch(`${server}${nlp}samsung-report`)
     .then(handleResponse)
     .then(data =>  JSON.stringify(data))
     .catch((error) => {
@@ -33,4 +32,4 @@ async function getBlogSignup(){
      return Promise.resolve(res);          
     }
 
-export default BlogService
+export default NLPService

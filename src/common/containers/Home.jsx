@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom"
-import { SignUp,LoginForm } from "auth"
+import { LoginForm } from "auth"
 
 import {Counter, Footer, Navigation2} from "common"
 import { Schedule } from "todos"
 import dog from '../../images/fashion.png'
 import { Number,Fashion, Iris, Stroke} from "ml"
 import {NaverMovie } from "webcrawler"
+import { BlogSignup } from "blog"
+import { Samsung } from "nlp"
 
 
 const Home = () => {
@@ -28,17 +30,18 @@ const Home = () => {
             <Route path="/counter" element={<Counter/>}></Route>
             <Route path="/todos" element={<Schedule/>}></Route>
             <Route path="/login" element={<LoginForm/>}></Route>
-            <Route path="/signup" element={<SignUp/>}></Route>
+            <Route path="/signup" element={<BlogSignup/>}></Route>
             <Route path="/iris" element={<Iris/>}></Route>
             <Route path="/stroke" element={<Stroke/>}></Route>
             <Route path="/fashion" element={<Fashion/>}></Route>
             <Route path="/number" element={<Number/>}></Route>
             <Route path="/navermoives" element={<NaverMovie/>}></Route>
+            <Route path="/samsung" element={<Samsung/>}></Route>
         </Routes>
         </td>
         </tr>
         <tr>
-            <td>
+            <td style={{ width: "100%", border: "1px solid black"}}>
             <img src = {dog} style={imgsize} alt = 'dog'/>
             </td>
         </tr>
